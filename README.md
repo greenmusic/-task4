@@ -1,70 +1,201 @@
-# Getting Started with Create React App
+# Книжный магазин - Система управления
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Современное веб-приложение для управления книжным магазином с двумя интерфейсами: администратора и пользователя.
 
-## Available Scripts
+## 🚀 Возможности
 
-In the project directory, you can run:
+### Интерфейс администратора
+- 📊 Панель управления с статистикой
+- 👥 Управление пользователями
+- 📚 Управление книгами и авторами
+- 📈 Аналитика продаж
+- ⚙️ Настройки системы
 
-### `npm start`
+### Интерфейс пользователя
+- 👤 Управление профилем
+- 📖 Просмотр каталога книг
+- 🛒 Создание заказов
+- 📝 Личная библиотека
+- ⚙️ Настройки аккаунта
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## 🛠 Технологии
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+- **Frontend**: React 19, React Router DOM
+- **Backend**: Node.js
+- **База данных**: MySQL
+- **Стили**: CSS3, Tailwind CSS
+- **Драйвер БД**: mysql2
 
-### `npm test`
+## 📋 Требования
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+- Node.js 16+ 
+- MySQL 5.7+
+- npm или yarn
 
-### `npm run build`
+## 🚀 Установка и запуск
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### 1. Клонирование и установка зависимостей
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+```bash
+git clone <repository-url>
+cd project2
+npm install
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### 2. Настройка базы данных
 
-### `npm run eject`
+#### Установка MySQL
+1. Скачайте и установите MySQL Server с [официального сайта](https://dev.mysql.com/downloads/mysql/)
+2. Запомните пароль root пользователя
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+#### Настройка подключения
+1. Откройте файл `database/config.js`
+2. Измените параметры подключения:
+```javascript
+const dbConfig = {
+  host: 'localhost',
+  user: 'root',
+  password: 'ВАШ_ПАРОЛЬ', // Укажите ваш пароль
+  database: 'bookstore',
+  // ... остальные параметры
+};
+```
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### Инициализация базы данных
+```bash
+# Создание базы данных и таблиц
+npm run db:init
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+# Тестирование подключения
+npm run db:test
+```
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### 3. Запуск приложения
 
-## Learn More
+```bash
+npm start
+```
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Приложение будет доступно по адресу: http://localhost:3000
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## 📊 Структура базы данных
 
-### Code Splitting
+### Основные таблицы:
+- **users** - Пользователи системы
+- **books** - Книги
+- **authors** - Авторы
+- **categories** - Категории книг
+- **orders** - Заказы
+- **order_items** - Элементы заказов
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Тестовые данные:
+- 3 пользователя (1 администратор, 2 обычных пользователя)
+- 5 категорий книг
+- 5 авторов
+- 8 книг с полной информацией
 
-### Analyzing the Bundle Size
+## 🎯 Использование
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### Главная страница
+При запуске приложения вы увидите главную страницу с выбором интерфейса:
+- **👨‍💼 Войти как администратор** - доступ к панели управления
+- **👤 Войти как пользователь** - доступ к личному кабинету
 
-### Making a Progressive Web App
+### Интерфейс администратора
+1. **Панель управления** - статистика и обзор системы
+2. **Пользователи** - управление пользователями системы
+3. **Настройки** - конфигурация системы
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Интерфейс пользователя
+1. **Профиль** - управление личной информацией
+2. **Мои посты** - создание и управление контентом
+3. **Настройки** - настройки аккаунта
 
-### Advanced Configuration
+## 📁 Структура проекта
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+```
+project2/
+├── src/
+│   ├── components/
+│   │   ├── HomePage.js          # Главная страница
+│   │   ├── Admin.js             # Интерфейс администратора
+│   │   └── User.js              # Интерфейс пользователя
+│   ├── App.js                   # Основной компонент
+│   └── App.css                  # Глобальные стили
+├── database/
+│   ├── config.js                # Конфигурация БД
+│   ├── init.js                  # Инициализация БД
+│   ├── test-connection.js       # Тестирование подключения
+│   ├── bookstore.sql            # SQL скрипт создания БД
+│   ├── models/
+│   │   ├── User.js              # Модель пользователя
+│   │   └── Book.js              # Модель книги
+│   └── README.md                # Документация БД
+├── package.json
+└── README.md
+```
 
-### Deployment
+## 🔧 Команды npm
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+```bash
+# Запуск приложения
+npm start
 
-### `npm run build` fails to minify
+# Сборка для продакшена
+npm run build
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+# Инициализация базы данных
+npm run db:init
+
+# Тестирование подключения к БД
+npm run db:test
+
+# Сброс базы данных
+npm run db:reset
+```
+
+## 🔒 Безопасность
+
+- Все пароли хешируются перед сохранением
+- Используются подготовленные SQL запросы
+- Настроены внешние ключи для целостности данных
+- Валидация данных на клиенте и сервере
+
+## 🐛 Устранение неполадок
+
+### Проблемы с базой данных
+```bash
+# Проверка подключения
+npm run db:test
+
+# Пересоздание базы данных
+npm run db:reset
+```
+
+### Проблемы с приложением
+```bash
+# Очистка кэша
+npm run build
+
+# Перезапуск
+npm start
+```
+
+## 📝 Лицензия
+
+Этот проект создан в образовательных целях.
+
+## 🤝 Вклад в проект
+
+1. Форкните репозиторий
+2. Создайте ветку для новой функции
+3. Внесите изменения
+4. Создайте Pull Request
+
+## 📞 Поддержка
+
+При возникновении проблем:
+1. Проверьте документацию в папке `database/`
+2. Убедитесь, что MySQL запущен
+3. Проверьте настройки подключения в `database/config.js`
+4. Запустите тесты: `npm run db:test`
