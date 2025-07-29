@@ -23,6 +23,8 @@
 ```bash
 git clone <repository-url>
 npm install
+
+cd /server/ npm install
 ```
 
 ### 2. Настройка базы данных
