@@ -22,7 +22,6 @@
 
 ```bash
 git clone <repository-url>
-cd app
 npm install
 ```
 
@@ -47,7 +46,6 @@ const settingDB = {
 
 ### 3. Запуск приложения
 
-cd /app/
 npm start
 
 Приложение будет доступно по адресу: http://localhost:3000
